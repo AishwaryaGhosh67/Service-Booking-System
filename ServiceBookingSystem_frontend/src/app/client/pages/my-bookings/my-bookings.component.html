@@ -1,0 +1,26 @@
+<div style="background-color: rgb(207, 246, 157);">
+    <nz-table style="padding: 30px;" [nzData]="bookedServices" #basicTable [nzPageSize]="20"
+        [nzShowPagination]="'false'">
+        <thead>
+            <tr>
+                <th style="font-weight: bolder; color: rgb(71, 71, 242);">Service</th>
+                <th style="font-weight: bolder; color: rgb(71, 71, 242);">Date</th>
+                <th style="font-weight: bolder; color: rgb(71, 71, 242);">Status</th>
+                <th style="font-weight: bolder; color: rgb(71, 71, 242);">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of basicTable.data">
+                <td style="font-weight: 600;">{{ booking.serviceName}}</td>
+                <td>{{ booking.bookDate | date : "dd/MM/yyyy" }}</td>
+                <td style="font-weight: 600;">{{ booking.reservationStatus }}</td>
+                <span *ngIf="booking.reviewStatus == 'FALSE'">
+                    <td>
+                        <button style="margin-left: 10px; margin-top: 15px;" nzSize="small" nz-button nzType="primary"
+                            nzDanger routerLink="/client/review/{{booking.id}}">Review</button>
+                    </td>
+                </span>
+            </tr>
+        </tbody>
+    </nz-table>
+</div>

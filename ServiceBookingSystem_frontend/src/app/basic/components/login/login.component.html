@@ -1,0 +1,34 @@
+<div class="bg">
+    <div class="parent">
+        <div class="child">
+            <div nz-row class="imgDiv">
+                <div nz-col nzSpan="24">
+                    <h1 style="margin-left: 100px;">LogIn</h1>
+                </div>
+            </div>
+
+            <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input valid Email">
+                        <nz-input-group nzPrefixIcon="user">
+                            <input type="text" nz-input formControlName="userName" placeholder="E-Mail" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                    <nz-form-control nzErrorTip="Please input your password">
+                        <nz-input-group nzPrefixIcon="lock">
+                            <input type="password" nz-input formControlName="password" placeholder="Password" />
+                        </nz-input-group>
+                    </nz-form-control>
+                </nz-form-item>
+
+                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Log In</button>
+                Or, <a routerLink="/register">register now!</a>
+            </form>
+        </div>
+    </div>
+
+</div>
